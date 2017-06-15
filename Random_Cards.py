@@ -37,13 +37,28 @@ class Deck(object):
                 self.que.append(rcard)
         c1 = random.choice(self.que)
         return c1
+    
+    def pop_card(self):
+        c = random()
+        self.cards.remove(c)
+        self.que.remove(c)
+        return c
 
-deck = Deck()
+    def add_card(self,card):
+        self.cards.append(card)
+        self.que.append(card)
+
+    def shuffle(self):
+        random.shuffle(self.cards)
+        random.shuffle(self.que)
+    
 def random_cards(x):
     for x in range(1,x+1):
         r_card = Deck()
         rn_card = r_card.random()
+        r_card.shuffle()
         print rn_card
 
+deck = Deck()
 x = int(input("Enter Number of random cards to be drawn: "))
 rcard = random_cards(x)
